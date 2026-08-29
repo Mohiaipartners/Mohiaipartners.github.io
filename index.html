@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohi AI Partners | AI Strategy &amp; Implementation Consulting</title>
+<meta name="description" content="Mohi AI Partners — independent AI strategy, implementation, branding, and content automation consultancy led by Maryam Mohi. Serving the DMV area and remote clients.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,460;0,9..144,560;1,9..144,420&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#FAF9F5;
+    --paper-soft:#EFEDE6;
+    --ink:#0C0C0B;
+    --ink-soft:#6E6C62;
+    --line:#DEDBD1;
+    --gold:#9C7A32;
+    --surface:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0E0E0D;
+      --paper-soft:#1A1A17;
+      --ink:#F3F1EA;
+      --ink-soft:#9C998C;
+      --line:#33322B;
+      --gold:#CBA84E;
+      --surface:#161614;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0E0E0D;
+    --paper-soft:#1A1A17;
+    --ink:#F3F1EA;
+    --ink-soft:#9C998C;
+    --line:#33322B;
+    --gold:#CBA84E;
+    --surface:#161614;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;text-wrap:balance;letter-spacing:-0.01em;font-weight:460;}
+
+  header{
+    position:sticky;top:0;z-index:20;
+    background:color-mix(in srgb, var(--paper) 90%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .brand{font-family:"IBM Plex Mono";font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink);}
+  .brand span{color:var(--gold);}
+  .navlinks{display:flex;gap:34px;align-items:center;}
+  .navlinks a{text-decoration:none;color:var(--ink-soft);font-size:14px;font-weight:500;letter-spacing:.01em;}
+  .navlinks a:hover{color:var(--ink);}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 24px;border-radius:0;
+    background:var(--ink);color:var(--paper);
+    text-decoration:none;font-weight:600;font-size:13.5px;letter-spacing:.02em;
+    border:1px solid var(--ink);cursor:pointer;
+    transition:opacity .15s ease;
+  }
+  .btn:hover{opacity:.78;}
+  .btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--paper);opacity:1;}
+
+  section{padding:104px 0;}
+  section.tight{padding:76px 0;}
+  .eyebrow{
+    font-family:"IBM Plex Mono";font-size:12px;font-weight:500;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold);
+    display:flex;align-items:center;gap:10px;margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--gold);}
+
+  .hero{padding-top:72px;padding-bottom:0;position:relative;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:center;}
+  h1.headline{font-size:clamp(34px,4.6vw,56px);line-height:1.06;margin:0 0 26px;}
+  h1.headline .accent{font-style:italic;color:var(--ink);border-bottom:1px solid var(--gold);}
+  .lede{font-size:18px;color:var(--ink-soft);max-width:480px;margin:0 0 36px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .signal-box{border:1px solid var(--line);background:var(--surface);padding:4px;}
+  canvas#signal{display:block;width:100%;height:220px;}
+  .signal-caption{display:flex;justify-content:space-between;padding:12px 12px 6px;font-size:11px;letter-spacing:.04em;color:var(--ink-soft);}
+
+  .ledger{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:72px;}
+  .ledger > div{padding:26px 4px;border-left:1px solid var(--line);padding-left:24px;}
+  .ledger > div:first-child{border-left:none;padding-left:0;}
+  .ledger .k{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .ledger .v{font-family:"Fraunces";font-size:19px;}
+
+  .bg-soft{background:var(--paper-soft);}
+  .section-head{max-width:600px;margin:0 0 56px;}
+  h2{font-size:clamp(27px,3.4vw,36px);margin:0 0 14px;}
+  .section-head p{color:var(--ink-soft);font-size:16.5px;margin:0;}
+
+  .index-list{border-top:1px solid var(--line);}
+  .index-row{display:grid;grid-template-columns:56px 1fr 1.4fr;gap:32px;padding:30px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .index-row .num{font-family:"IBM Plex Mono";font-size:13px;color:var(--gold);}
+  .index-row h3{font-size:21px;margin:0;}
+  .index-row p{margin:0;color:var(--ink-soft);font-size:15px;max-width:480px;}
+  @media (max-width:700px){
+    .index-row{grid-template-columns:32px 1fr;}
+    .index-row p{grid-column:2;margin-top:8px;}
+  }
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+  .steps::before{content:"";position:absolute;top:13px;left:0;right:0;height:1px;background:var(--line);}
+  .step{padding-right:24px;position:relative;}
+  .step .idx{
+    font-family:"IBM Plex Mono";font-size:12px;color:var(--paper);background:var(--ink);
+    width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    margin-bottom:22px;position:relative;z-index:1;
+  }
+  .step h4{font-family:"Fraunces";margin:0 0 8px;font-size:17px;}
+  .step p{margin:0;color:var(--ink-soft);font-size:14.5px;}
+
+  .bio-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;}
+  .bio-quote{font-family:"Fraunces";font-style:italic;font-size:22px;line-height:1.5;color:var(--ink);margin:0 0 24px;}
+  .bio-copy p{color:var(--ink-soft);font-size:15.5px;margin:0 0 16px;}
+  .cred-group{margin-bottom:30px;}
+  .cred-group:last-child{margin-bottom:0;}
+  .cred-label{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .cred-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
+  .cred-list li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px;}
+  .cred-list li .name{color:var(--ink);}
+  .cred-list li .meta{color:var(--ink-soft);font-family:"IBM Plex Mono";font-size:12.5px;white-space:nowrap;text-align:right;}
+
+  .blog-teaser{border:1px solid var(--line);padding:44px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:var(--surface);}
+  .blog-teaser .post-date{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  .blog-teaser h3{margin:0 0 6px;font-size:19px;}
+  .blog-teaser p{color:var(--ink-soft);margin:0;font-size:14.5px;}
+
+  .cta-panel{
+    background:var(--ink);color:var(--paper);padding:68px 56px;text-align:left;
+    display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;
+    border:1px solid var(--gold);
+  }
+  .cta-panel h2{color:var(--paper);margin-bottom:10px;}
+  .cta-panel p{color:color-mix(in srgb, var(--paper) 68%, transparent);max-width:420px;margin:0;font-size:15.5px;}
+  .cta-panel .btn-gold-solid{background:var(--gold);color:var(--ink);border:1px solid var(--gold);white-space:nowrap;}
+  .cta-panel .btn-gold-solid:hover{opacity:.85;}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-row p{margin:0;color:var(--ink-soft);font-size:13px;font-family:"IBM Plex Mono";}
+  .footer-links{display:flex;gap:22px;}
+  .footer-links a{text-decoration:none;color:var(--ink-soft);font-size:13px;}
+  .footer-links a:hover{color:var(--ink);}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .bio-grid{grid-template-columns:1fr;gap:40px;}
+    .steps{grid-template-columns:1fr 1fr;row-gap:32px;}
+    .steps::before{display:none;}
+    .ledger{grid-template-columns:1fr;}
+    .ledger > div{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:20px;}
+    .ledger > div:first-child{border-top:none;}
+    .navlinks{display:none;}
+    .cta-panel{grid-template-columns:1fr;text-align:left;padding:40px 26px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    canvas#signal{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#top">MOHI <span>AI</span> PARTNERS</a>
+    <div class="navlinks">
+      <a href="#background">Background</a>
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="blog/index.html">Insights</a>
+    </div>
+    <a class="btn" href="#contact">Book a Free Consult</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">AI Strategy, Implementation &amp; Creative Automation</span>
+        <h1 class="headline">You don't have an AI problem.<br>You have a <span class="accent">signal</span> problem.</h1>
+        <p class="lede">Every business is buried in AI noise right now — tools, hype, half-finished pilots. I help you find the two or three moves worth making first, from strategy through to the finished, working system.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="#contact">Book a Free Consult</a>
+          <a class="btn btn-outline" href="#services">See Services</a>
+        </div>
+      </div>
+      <div class="signal-box">
+        <canvas id="signal" width="600" height="440"></canvas>
+        <div class="signal-caption mono">
+          <span>INPUT — NOISE</span>
+          <span>OUTPUT — STRATEGY</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ledger">
+      <div>
+        <div class="k">Practice</div>
+        <div class="v">Independent consultancy, Maryam Mohi</div>
+      </div>
+      <div>
+        <div class="k">Coverage</div>
+        <div class="v">DMV &amp; remote clients</div>
+      </div>
+      <div>
+        <div class="k">First step</div>
+        <div class="v">A free, no-pressure consult</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Background</span>
+      <h2>10+ years turning strategy into execution</h2>
+      <p>Before founding this practice, I spent over a decade leading enterprise transformation inside Fortune 500 financial institutions.</p>
+    </div>
+    <div class="bio-grid">
+      <div>
+        <p class="bio-quote">"I bring a technical foundation and enterprise-transformation discipline to AI adoption — not just tools, but the governance and change management to make them stick."</p>
+        <div class="bio-copy">
+          <p>I'm Maryam Mohi — an enterprise transformation program manager turned AI strategy consultant, with a technical background in software engineering and computer networks. Over 10+ years I've led large-scale operating model redesign and digital modernization at organizations including Bank of America, Citigroup, and JPMorgan Chase, generating $3M+ in measurable cost savings through automation and process transformation.</p>
+          <p>That background — securing executive buy-in, governing delivery, and driving real adoption across resistant organizations — is what I bring to AI consulting: practical plans that get implemented, not shelved.</p>
+        </div>
+      </div>
+      <div>
+        <div class="cred-group">
+          <div class="cred-label">Education</div>
+          <ul class="cred-list">
+            <li><span class="name">MBA, C.T. Bauer College of Business</span><span class="meta">Univ. of Houston</span></li>
+            <li><span class="name">MS, Computer &amp; Telecommunication Networks</span><span class="meta">Sharif Univ. of Tech.</span></li>
+            <li><span class="name">BS, Software Engineering</span><span class="meta">Sharif Univ. of Tech.</span></li>
+          </ul>
+        </div>
+        <div class="cred-group">
+          <div class="cred-label">AI &amp; Automation Credentials</div>
+          <ul class="cred-list">
+            <li><span class="name">Prompt Engineering for Project Managers</span><span class="meta">PMI</span></li>
+            <li><span class="name">Generative AI Overview for Project Managers</span><span class="meta">PMI</span></li>
+            <li><span class="name">Microsoft Professional Program in AI</span><span class="meta">Coursiv</span></li>
+            <li><span class="name">Generative AI for Product Managers</span><span class="meta">Coursework</span></li>
+            <li><span class="name">RPA &amp; Enterprise Automation Strategy</span><span class="meta">Applied</span></li>
+          </ul>
+        </div>
+        <div class="cred-group">
+          <div class="cred-label">Enterprise Track Record</div>
+          <ul class="cred-list">
+            <li><span class="name">Program &amp; Transformation Manager</span><span class="meta">Bank of America</span></li>
+            <li><span class="name">PMO Manager, Portfolio Governance</span><span class="meta">Citigroup</span></li>
+            <li><span class="name">Business Analyst, Compliance Automation</span><span class="meta">JPMorgan Chase</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="bg-soft">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What I Do</span>
+      <h2>Five ways I can help</h2>
+      <p>From first strategy conversation to a finished, running system — including the brand and content layer around it.</p>
+    </div>
+    <div class="index-list">
+      <div class="index-row">
+        <div class="num mono">01</div>
+        <h3>AI Readiness &amp; Roadmapping</h3>
+        <p>An honest read on where AI actually fits in your business, and a prioritized plan so your time and budget go to the right place first.</p>
+      </div>
+      <div class="index-row">
+        <div class="num mono">02</div>
+        <h3>Workflow Automation</h3>
+        <p>I find the repetitive, high-friction work — client communication, reporting, intake — and automate it in a way your team will actually use.</p>
+      </div>
+      <div class="index-row">
+        <div class="num mono">03</div>
+        <h3>Branding &amp; Visual Identity</h3>
+        <p>AI-assisted brand identity — name, voice, visual system — built fast without losing the polish of a traditional studio process.</p>
+      </div>
+      <div class="index-row">
+        <div class="num mono">04</div>
+        <h3>Image &amp; Video Content Automation</h3>
+        <p>Automated pipelines for on-brand image and video content — so marketing output scales without scaling headcount.</p>
+      </div>
+      <div class="index-row">
+        <div class="num mono">05</div>
+        <h3>Custom AI Tools</h3>
+        <p>For businesses ready to go further, I design and implement AI-powered tools shaped around how your team already works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How I Work</span>
+      <h2>A simple, practical process</h2>
+      <p>No jargon, no hundred-page decks — a clear path from where you are to results.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="idx mono">01</div>
+        <h4>Discovery Call</h4>
+        <p>A free conversation about your business and where AI might realistically help.</p>
+      </div>
+      <div class="step">
+        <div class="idx mono">02</div>
+        <h4>Assessment</h4>
+        <p>I map your current workflows and flag the highest-impact opportunities.</p>
+      </div>
+      <div class="step">
+        <div class="idx mono">03</div>
+        <h4>Roadmap</h4>
+        <p>A prioritized, realistic plan — what to do first, and why it comes first.</p>
+      </div>
+      <div class="step">
+        <div class="idx mono">04</div>
+        <h4>Implementation</h4>
+        <p>I build, configure, and hand off the tools — or manage it ongoing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Insights</span>
+      <h2>From the blog</h2>
+    </div>
+    <div class="blog-teaser">
+      <div>
+        <div class="post-date mono">Latest Post</div>
+        <h3>How to Choose Your First AI Project</h3>
+        <p>A simple three-question framework for finding the highest-impact place to start.</p>
+      </div>
+      <a class="btn btn-outline" href="blog/post-1.html">Read the Post</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-panel">
+      <div>
+        <h2>Let's find where AI fits in your business.</h2>
+        <p>Book a free intro consult — a clear conversation about what's realistic for you, no pressure.</p>
+      </div>
+      <a class="btn btn-gold-solid" href="mailto:mohimaryam@gmail.com?subject=Free%20AI%20Consult%20Request">Book a Free Consult</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>&copy; <span id="year"></span> Mohi AI Partners — Maryam Mohi</p>
+    <div class="footer-links">
+      <a href="#" id="fb-link" target="_blank" rel="noopener">Facebook</a>
+      <a href="mailto:mohimaryam@gmail.com">Email</a>
+      <a href="blog/index.html">Blog</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+(function(){
+  var canvas = document.getElementById('signal');
+  if(!canvas) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+
+  var ctx = canvas.getContext('2d');
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize(){
+    var rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function styleVar(name){
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  var start = null;
+  var duration = 3200;
+
+  function draw(ts){
+    if(start === null) start = ts;
+    var elapsed = ts - start;
+    var t = Math.min(elapsed / duration, 1);
+    var settle = 1 - Math.pow(1 - t, 3);
+
+    var rect = canvas.getBoundingClientRect();
+    var w = rect.width, h = rect.height;
+    ctx.clearRect(0,0,w,h);
+
+    var mid = h * 0.55;
+    var amp = h * 0.22;
+    var line = styleVar('--ink') || '#111';
+    var noiseCol = styleVar('--ink-soft') || '#888';
+
+    ctx.lineWidth = 1.4;
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+
+    var points = 140;
+    for(var i=0;i<=points;i++){
+      var x = (i/points) * w;
+      var phase = (i/points) * Math.PI * 4;
+      var clean = Math.sin(phase + elapsed/900) * amp;
+      var noiseAmt = (Math.random()-0.5) * amp * 1.6 * (1-settle);
+      var y = mid + clean*settle + clean*0.15 + noiseAmt;
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    }
+    ctx.strokeStyle = t < 1 ? noiseCol : line;
+    ctx.globalAlpha = 0.85;
+    ctx.stroke();
+
+    ctx.globalAlpha = 0.3;
+    ctx.strokeStyle = styleVar('--line') || '#ddd';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, mid);
+    ctx.lineTo(w, mid);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+
+    if(t < 1){
+      requestAnimationFrame(draw);
+    } else {
+      idleLoop(elapsed);
+    }
+  }
+
+  var idleStart = null;
+  function idleLoop(baseElapsed){
+    function frame(ts){
+      if(idleStart===null) idleStart = ts;
+      var e = baseElapsed + (ts - idleStart);
+      var rect = canvas.getBoundingClientRect();
+      var w = rect.width, h = rect.height;
+      ctx.clearRect(0,0,w,h);
+      var mid = h*0.55, amp = h*0.22;
+      var line = styleVar('--ink') || '#111';
+      var gold = styleVar('--gold') || '#9C7A32';
+      ctx.beginPath();
+      var points = 140;
+      for(var i=0;i<=points;i++){
+        var x = (i/points)*w;
+        var phase = (i/points)*Math.PI*4;
+        var y = mid + Math.sin(phase + e/900)*amp*1.15;
+        if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle = line;
+      ctx.lineWidth = 1.4;
+      ctx.globalAlpha = 0.85;
+      ctx.stroke();
+
+      var lastY = mid + Math.sin(Math.PI*4 + e/900)*amp*1.15;
+      ctx.beginPath();
+      ctx.arc(w-2, lastY, 2.5, 0, Math.PI*2);
+      ctx.fillStyle = gold;
+      ctx.globalAlpha = 0.9;
+      ctx.fill();
+
+      ctx.globalAlpha = 0.3;
+      ctx.strokeStyle = styleVar('--line') || '#ddd';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0,mid);
+      ctx.lineTo(w,mid);
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
