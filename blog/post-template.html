@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- CHANGE THIS: page title -->
+<title>Your Post Title Here | Mohi AI Partners</title>
+<!-- CHANGE THIS: one-line SEO description -->
+<meta name="description" content="A short description of this post for search engines.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,460;1,9..144,420&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#FAF9F5;--ink:#0C0C0B;--ink-soft:#6E6C62;--line:#DEDBD1;--gold:#9C7A32;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0E0E0D;--ink:#F3F1EA;--ink-soft:#9C998C;--line:#33322B;--gold:#CBA84E;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0E0E0D;--ink:#F3F1EA;--ink-soft:#9C998C;--line:#33322B;--gold:#CBA84E;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Public Sans",-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;}
+  a{color:var(--gold);}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;}
+  header{border-bottom:1px solid var(--line);}
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .brand{font-family:"IBM Plex Mono";font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink);}
+  .brand span{color:var(--gold);}
+  .back{color:var(--ink-soft);font-size:14px;font-weight:500;text-decoration:none;}
+  .back:hover{color:var(--ink);}
+  main{padding:60px 0 110px;}
+  .post-date{color:var(--ink-soft);font-family:"IBM Plex Mono";font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;}
+  h1{font-family:"Fraunces";font-weight:460;font-size:clamp(28px,4.5vw,42px);letter-spacing:-0.01em;margin:0 0 34px;}
+  .content p{font-size:17px;color:var(--ink);margin:0 0 22px;}
+  .content h2{font-family:"Fraunces";font-weight:460;font-size:22px;margin:38px 0 14px;}
+  .content ul{padding-left:22px;}
+  .content li{font-size:17px;margin-bottom:8px;}
+  footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;}
+  footer p{color:var(--ink-soft);font-family:"IBM Plex Mono";font-size:13px;margin:0;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="../index.html">MOHI <span>AI</span> PARTNERS</a>
+    <a class="back" href="index.html">&larr; Back to blog</a>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap">
+    <!-- CHANGE THIS: publish date -->
+    <div class="post-date">Month Day, Year</div>
+    <!-- CHANGE THIS: headline -->
+    <h1>Your Post Title Here</h1>
+
+    <div class="content">
+      <!-- CHANGE THIS: write your post as plain paragraphs and optional headings/lists -->
+      <p>Start your post here. Keep paragraphs short and focused — this template is already styled to match the rest of the site, so you only need to edit the text.</p>
+
+      <h2>An optional subheading</h2>
+      <p>More content goes here.</p>
+
+      <ul>
+        <li>You can use bullet points like this.</li>
+        <li>Another point.</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> MOHI AI PARTNERS</p>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
