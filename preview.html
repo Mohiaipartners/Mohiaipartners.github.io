@@ -191,7 +191,7 @@
   /* Portfolio / collage */
   .collage{display:flex;align-items:flex-start;gap:28px;margin-top:64px;flex-wrap:wrap;}
   .collage-item{position:relative;flex:1 1 220px;}
-  .collage-item img{border:1px solid var(--line);}
+  .collage-item img,.collage-item video{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--line);}
   .collage-item:nth-child(1){margin-top:60px;}
   .collage-item:nth-child(2){flex:1.3 1 320px;transform:rotate(-1deg);}
   .collage-item:nth-child(3){margin-top:30px;transform:rotate(1.2deg);}
@@ -411,7 +411,7 @@
         <div class="collage-cap">Image Editing</div>
       </div>
       <div class="collage-item">
-        <img src="img/video-creation-sample.jpg" alt="" loading="lazy">
+        <video src="video/video-creation-sample.mp4" poster="img/video-creation-sample.jpg" autoplay muted loop playsinline></video>
         <div class="collage-cap">Video Creation</div>
       </div>
       <div class="collage-item">
