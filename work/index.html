@@ -50,7 +50,7 @@
   .lede{color:var(--ink-soft);font-size:17px;max-width:560px;margin:0 0 56px;}
   .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
   .gallery-item{background:var(--surface);border:1px solid var(--line);}
-  .gallery-item img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+  .gallery-item img,.gallery-item video{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
   .gallery-cap{padding:16px 18px;}
   .gallery-cap .cat{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive);margin-bottom:4px;}
   .gallery-cap .desc{font-size:14px;color:var(--ink-soft);}
@@ -84,10 +84,10 @@
         </div>
       </div>
       <div class="gallery-item">
-        <img src="../img/samples/video-creation.jpg" alt="Video editing workspace sample" loading="lazy">
+        <video src="../video/video-creation-sample.mp4" poster="../img/video-creation-sample.jpg" autoplay muted loop playsinline></video>
         <div class="gallery-cap">
           <div class="cat">Video Creation</div>
-          <div class="desc">Scripted, generated, and edited social &amp; ad video.</div>
+          <div class="desc">UGC-style product demo &mdash; scripted, generated, and edited for social &amp; ad use.</div>
         </div>
       </div>
       <div class="gallery-item">
