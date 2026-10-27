@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Work | Mohi AI Partners</title>
+<meta name="description" content="Sample work from Mohi AI Partners — image editing, video creation, website design, and product photography.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --cream:#F6F3F1;--cream-soft:#EBE4E1;--ink:#1D2238;--ink-soft:#5B5F75;
+    --line:#DDD5D0;--olive:#0B6E73;--gold:#7A3345;--surface:#FFFFFF;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --cream:#14151C;--cream-soft:#1C1E29;--ink:#F2EFEC;--ink-soft:#ABA9B8;
+      --line:#333750;--olive:#36A4A9;--gold:#C97A8C;--surface:#1C1E29;
+    }
+  }
+  :root[data-theme="dark"]{
+    --cream:#14151C;--cream-soft:#1C1E29;--ink:#F2EFEC;--ink-soft:#ABA9B8;
+    --line:#333750;--olive:#36A4A9;--gold:#C97A8C;--surface:#1C1E29;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Public Sans",-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;}
+  h1{font-family:"Anton",sans-serif;font-weight:400;letter-spacing:-0.01em;text-transform:uppercase;}
+  header{position:sticky;top:0;background:color-mix(in srgb, var(--cream) 90%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:10;}
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .brand{font-family:"IBM Plex Mono";font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;}
+  .brand span{color:var(--gold);}
+  .back{color:var(--ink-soft);font-size:14px;font-weight:500;}
+  .back:hover{color:var(--ink);}
+  main{padding:64px 0 110px;}
+  .eyebrow{
+    font-family:"IBM Plex Mono";font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);
+    display:flex;align-items:center;gap:10px;margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--gold);}
+  h1{font-size:clamp(36px,6vw,64px);margin:0 0 16px;}
+  .lede{color:var(--ink-soft);font-size:17px;max-width:560px;margin:0 0 56px;}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .gallery-item{background:var(--surface);border:1px solid var(--line);}
+  .gallery-item img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+  .gallery-cap{padding:16px 18px;}
+  .gallery-cap .cat{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive);margin-bottom:4px;}
+  .gallery-cap .desc{font-size:14px;color:var(--ink-soft);}
+  @media (max-width:860px){ .gallery{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .gallery{grid-template-columns:1fr;} }
+  footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;}
+  footer p{color:var(--ink-soft);font-family:"IBM Plex Mono";font-size:13px;margin:0;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="../index.html">MOHI <span>AI</span> PARTNERS</a>
+    <a class="back" href="../index.html">&larr; Back to site</a>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap">
+    <span class="eyebrow">Portfolio</span>
+    <h1>Sample Work</h1>
+    <p class="lede">A look at the kind of output across image editing, video, website design, and product photography &mdash; all produced with AI tools and finished by hand.</p>
+
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_164101_f424e246-ae0c-4dc9-924f-b704f5fc2c00.png" alt="Perfume bottle before/after retouching" loading="lazy">
+        <div class="gallery-cap">
+          <div class="cat">Image Editing</div>
+          <div class="desc">Before/after product retouching &mdash; color, lighting, background compositing.</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="../img/samples/video-creation.jpg" alt="Video editing workspace sample" loading="lazy">
+        <div class="gallery-cap">
+          <div class="cat">Video Creation</div>
+          <div class="desc">Scripted, generated, and edited social &amp; ad video.</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_164024_f300355a-d0cd-405f-9a6d-d98e5ea2f3f9.png" alt="Website design mockup on laptop" loading="lazy">
+        <div class="gallery-cap">
+          <div class="cat">Website Design</div>
+          <div class="desc">Custom, on-brand websites built fast and easy to maintain.</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="../img/samples/ring-stack.jpg" alt="Personalized stacking ring product photo" loading="lazy">
+        <div class="gallery-cap">
+          <div class="cat">Product Photography</div>
+          <div class="desc">Lifestyle product shots, ready for listings and ads.</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="../img/samples/candle.jpg" alt="Candle jar product photo" loading="lazy">
+        <div class="gallery-cap">
+          <div class="cat">Product Photography</div>
+          <div class="desc">Styled product photography with clean, on-brand presentation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> MOHI AI PARTNERS</p>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
