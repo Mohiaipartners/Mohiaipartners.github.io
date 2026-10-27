@@ -136,12 +136,6 @@
   h2.display{font-size:clamp(38px,6vw,78px);margin:0 0 16px;}
   .section-head p{color:var(--ink-soft);font-size:16.5px;margin:0;}
 
-  /* Scallop divider */
-  .scallop{height:22px;width:100%;background-repeat:repeat-x;background-size:34px 22px;background-position:center;}
-  .scallop-olive{background-image:radial-gradient(circle at 50% 0, transparent 15px, var(--olive) 16px);}
-  .scallop-cream{background-image:radial-gradient(circle at 50% 0, transparent 15px, var(--cream) 16px);}
-  .scallop.flip{transform:scaleY(-1);}
-
   /* Hero */
   .hero{
     position:relative;min-height:88vh;display:flex;align-items:flex-end;
@@ -155,11 +149,23 @@
   .hero-inner{position:relative;z-index:1;padding:64px 0 56px;width:100%;}
   .hero .eyebrow{color:var(--gold);}
   .hero .eyebrow::before{background:var(--gold);}
-  h1.headline{color:var(--cream);font-size:clamp(44px,8vw,108px);margin:0 0 22px;}
-  h1.headline .accent{display:block;color:var(--gold);}
-  h1.headline .script{font-size:0.42em;color:var(--cream);vertical-align:middle;display:inline-block;margin-right:8px;}
+  h1.headline{color:var(--cream);font-size:clamp(40px,8vw,108px);margin:0 0 22px;line-height:1.04;}
+  h1.headline .accent{display:block;color:var(--gold);margin-top:6px;}
+  h1.headline .script{font-size:0.42em;color:var(--cream);vertical-align:middle;display:inline-block;margin:8px 8px 4px 0;}
   .lede{font-size:18px;color:color-mix(in srgb, var(--cream) 85%, transparent);max-width:520px;margin:0 0 34px;}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  @media (min-width:901px){
+    .hero-inner{margin-left:auto;max-width:640px;text-align:right;}
+    .hero .eyebrow{justify-content:flex-end;}
+    .lede{margin-left:auto;}
+    .hero-ctas{justify-content:flex-end;}
+  }
+  @media (max-width:600px){
+    h1.headline{font-size:clamp(34px,11vw,52px);line-height:1.12;}
+    h1.headline .script{margin:10px 10px 6px 0;}
+    h1.headline .accent{margin-top:4px;}
+    .lede{font-size:15.5px;}
+  }
 
   /* Portfolio / collage */
   .collage{display:flex;align-items:flex-start;gap:28px;margin-top:64px;flex-wrap:wrap;}
@@ -308,7 +314,6 @@
     </div>
   </div>
 </section>
-<div class="scallop scallop-cream"></div>
 
 <section id="portfolio">
   <div class="wrap">
@@ -334,14 +339,12 @@
   </div>
 </section>
 
-<div class="scallop scallop-olive"></div>
 <section class="fullbleed" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_164023_d11636d5-7622-4e9a-bca2-eedf05b0e81e.png');">
   <div class="wrap fullbleed-inner">
     <span class="script">fast, polished &amp; on&#8209;brand</span>
     <p>No agency retainer, no months-long timeline &mdash; a clear scope, a real deadline, and a finished asset you can actually use.</p>
   </div>
 </section>
-<div class="scallop scallop-olive flip"></div>
 
 <section class="olive-block">
   <div class="wrap olive-grid">
