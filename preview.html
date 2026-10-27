@@ -260,6 +260,14 @@
   @media (max-width:860px){.steps{grid-template-columns:1fr 1fr;}}
   @media (max-width:520px){.steps{grid-template-columns:1fr;}}
 
+  /* Testimonials */
+  .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .testimonial{padding:32px 28px;border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;}
+  .testimonial .quote-mark{font-family:"Space Grotesk";font-weight:700;font-size:40px;color:var(--olive-deep);line-height:1;margin-bottom:10px;}
+  .testimonial p{color:var(--ink);font-size:15px;line-height:1.65;margin:0 0 20px;flex:1;}
+  .testimonial .by{font-family:"IBM Plex Mono";font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--olive-deep);border-top:1px solid var(--line);padding-top:14px;margin-top:auto;}
+  @media (max-width:860px){.testimonials{grid-template-columns:1fr;}}
+
   /* Blog teaser */
   .blog-teaser{border:1px solid var(--line);padding:44px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:var(--surface);}
   .blog-teaser .post-date{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive-deep);margin-bottom:10px;}
@@ -303,8 +311,9 @@
     <a href="#portfolio" data-close><span class="ni">03</span>Portfolio</a>
     <a href="work/index.html"><span class="ni">04</span>Sample Work</a>
     <a href="#services" data-close><span class="ni">05</span>Services</a>
-    <a href="blog/index.html"><span class="ni">06</span>Insights</a>
-    <a href="#contact" data-close><span class="ni">07</span>Inquire</a>
+    <a href="#testimonials" data-close><span class="ni">06</span>Testimonials</a>
+    <a href="blog/index.html"><span class="ni">07</span>Insights</a>
+    <a href="#contact" data-close><span class="ni">08</span>Inquire</a>
   </div>
   <div class="nav-overlay-img">
     <img src="img/maryam-portrait-web.jpg" alt="Maryam Mohi">
@@ -494,6 +503,32 @@
         <div class="idx">04</div>
         <h4>Delivery &amp; Revisions</h4>
         <p>Final files, handed off in the format you need, with a revision round built in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="tight" style="background:var(--cream-soft);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow mono">Client Feedback</span>
+      <h2 class="display" style="font-size:clamp(32px,4.6vw,52px);">What clients are saying</h2>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="quote-mark">&ldquo;</div>
+        <p>What stood out to me was the combination of creativity and organization. The website work was approached with a clear process, thoughtful communication, and attention to the overall brand experience. I appreciated having clear expectations around the scope, timeline, and revisions instead of dealing with unnecessary complexity. Mohi AI Partners is worth considering for businesses that want a professional online presence and a more streamlined creative process.</p>
+        <div class="by">Website Design Client</div>
+      </div>
+      <div class="testimonial">
+        <div class="quote-mark">&ldquo;</div>
+        <p>Working with Mohi AI Partners made creating marketing content feel much more manageable. I appreciated the creative approach, responsiveness, and willingness to understand what I was trying to communicate. The video content had a polished, professional feel, and the process was much less complicated than I expected. I'd recommend this service to business owners who need quality content but don't have a full marketing team.</p>
+        <div class="by">Video Creation Client</div>
+      </div>
+      <div class="testimonial">
+        <div class="quote-mark">&ldquo;</div>
+        <p>I needed better product images for my online store and wanted something that looked professional without spending a fortune on a traditional photoshoot. The process was straightforward, communication was clear, and the final images looked clean and polished. I especially appreciated the attention to detail and how the visuals stayed consistent with my brand. A great option for small businesses looking to improve their online presence.</p>
+        <div class="by">Image Editing Client</div>
       </div>
     </div>
   </div>
