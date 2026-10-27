@@ -201,6 +201,10 @@
 
   /* Background / credentials */
   .bio-grid{display:grid;grid-template-columns:0.95fr 1.05fr;gap:64px;margin-top:56px;}
+  .portrait-row{display:flex;gap:26px;align-items:flex-end;margin-bottom:36px;}
+  .portrait-row img{width:180px;height:225px;object-fit:cover;border:1px solid var(--line);}
+  .portrait-row .pname{font-family:"Public Sans";font-weight:700;font-size:16px;margin-bottom:4px;}
+  .portrait-row .prole{font-family:"IBM Plex Mono";font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--olive-deep);}
   .bio-copy p{color:var(--ink-soft);font-size:15.5px;margin:0 0 16px;}
   .cred-group{margin-bottom:28px;}
   .cred-group:last-child{margin-bottom:0;}
@@ -279,7 +283,7 @@
     <a href="#contact" data-close><span class="ni">06</span>Inquire</a>
   </div>
   <div class="nav-overlay-img">
-    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_161154_96a96503-0ef1-40c7-bdb6-a3b8f6bd8f7c.png" alt="">
+    <img src="img/maryam-portrait-web.jpg" alt="Maryam Mohi">
   </div>
   <button class="nav-close" id="navClose" aria-label="Close menu">&times;</button>
   <div class="nav-overlay-foot">
@@ -358,6 +362,13 @@
     </div>
     <div class="bio-grid">
       <div class="bio-copy">
+        <div class="portrait-row">
+          <img src="img/maryam-portrait-web.jpg" alt="Maryam Mohi, founder of Mohi AI Partners">
+          <div>
+            <div class="pname">Maryam Mohi</div>
+            <div class="prole">Founder, Mohi AI&nbsp;Partners</div>
+          </div>
+        </div>
         <p>I'm Maryam Mohi &mdash; an enterprise transformation program manager turned AI-powered creative producer, with a technical background in software engineering and computer networks. Over 10+ years I led large-scale operating model redesign and digital modernization at organizations including Bank of America, Citigroup, and JPMorgan Chase, generating $3M+ in measurable cost savings through automation and process transformation.</p>
         <p>That same rigor &mdash; clear scope, governed delivery, real adoption &mdash; is what I bring to image editing, video, and website work: fast, considered, and finished.</p>
       </div>
