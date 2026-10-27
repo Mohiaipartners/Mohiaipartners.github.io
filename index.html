@@ -449,6 +449,23 @@
   </div>
 </section>
 
+<section class="tight">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow mono">See The Difference</span>
+      <h2 class="display" style="font-size:clamp(32px,4.6vw,52px);">Drag to compare</h2>
+      <p>Real product retouching, side by side &mdash; drag the slider to see the edit.</p>
+    </div>
+    <div class="compare-wrap" id="compareSlider" tabindex="0" role="slider" aria-label="Before and after image comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <img class="compare-after" src="img/samples/eclat-after.jpg" alt="After retouching" draggable="false">
+      <img class="compare-before" id="compareBeforeImg" src="img/samples/eclat-before.jpg" alt="Before retouching" draggable="false">
+      <span class="compare-tag before">Before</span>
+      <span class="compare-tag after">After</span>
+      <div class="compare-handle" id="compareHandle"></div>
+    </div>
+  </div>
+</section>
+
 <section id="services" class="tight" style="background:var(--cream-soft);">
   <div class="wrap">
     <div class="section-head">
@@ -528,23 +545,6 @@
         <h4>Delivery &amp; Revisions</h4>
         <p>Final files, handed off in the format you need, with a revision round built in.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="tight">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow mono">See The Difference</span>
-      <h2 class="display" style="font-size:clamp(32px,4.6vw,52px);">Drag to compare</h2>
-      <p>Real product retouching, side by side &mdash; drag the slider to see the edit.</p>
-    </div>
-    <div class="compare-wrap" id="compareSlider" tabindex="0" role="slider" aria-label="Before and after image comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-      <img class="compare-after" src="img/samples/eclat-after.jpg" alt="After retouching" draggable="false">
-      <img class="compare-before" id="compareBeforeImg" src="img/samples/eclat-before.jpg" alt="Before retouching" draggable="false">
-      <span class="compare-tag before">Before</span>
-      <span class="compare-tag after">After</span>
-      <div class="compare-handle" id="compareHandle"></div>
     </div>
   </div>
 </section>
