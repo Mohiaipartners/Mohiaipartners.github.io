@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohi AI Partners | Image Editing, Video &amp; Website Design for Businesses</title>
+<meta name="description" content="Mohi AI Partners — AI-powered image editing, video creation, and website design for businesses, led by Maryam Mohi. Studio-quality creative output, agency speed. Serving the DMV area and remote clients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --cream:#F8F2E4;
+    --cream-soft:#F0E9D6;
+    --ink:#26231C;
+    --ink-soft:#6E6757;
+    --line:#DED3B4;
+    --olive:#C3B233;
+    --olive-deep:#8F8322;
+    --gold:#E8C94A;
+    --surface:#FFFDF7;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --cream:#19180F;
+      --cream-soft:#211F14;
+      --ink:#F3EEDD;
+      --ink-soft:#A39E89;
+      --line:#3A3624;
+      --olive:#9E9128;
+      --olive-deep:#C3B233;
+      --gold:#E8C94A;
+      --surface:#211F14;
+    }
+  }
+  :root[data-theme="dark"]{
+    --cream:#19180F;
+    --cream-soft:#211F14;
+    --ink:#F3EEDD;
+    --ink-soft:#A39E89;
+    --line:#3A3624;
+    --olive:#9E9128;
+    --olive-deep:#C3B233;
+    --gold:#E8C94A;
+    --surface:#211F14;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px;}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;}
+  .display{font-family:"Anton",Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:0.96;}
+  .script{font-family:"Caveat",cursive;font-weight:700;text-transform:none;letter-spacing:0;}
+
+  header{
+    position:sticky;top:0;z-index:30;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .brand{font-family:"Anton";font-size:19px;letter-spacing:.02em;text-decoration:none;color:var(--ink);}
+  .brand span{color:var(--olive-deep);}
+  .eyebrow-nav{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);display:none;}
+  @media (min-width:720px){.eyebrow-nav{display:block;}}
+  .menu-btn{
+    width:40px;height:40px;border:1px solid var(--ink);background:transparent;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;position:relative;flex:none;
+  }
+  .menu-btn span{position:absolute;width:16px;height:1.5px;background:var(--ink);transition:transform .25s ease, opacity .25s ease;}
+  .menu-btn span:first-child{transform:translateY(-4px);}
+  .menu-btn span:last-child{transform:translateY(4px);}
+  .menu-btn.open span:first-child{transform:rotate(45deg);}
+  .menu-btn.open span:last-child{transform:rotate(-45deg);}
+
+  /* Full-screen nav overlay */
+  .nav-overlay{
+    position:fixed;inset:0;z-index:40;background:var(--olive);
+    display:none;grid-template-columns:1.3fr 1fr;
+  }
+  .nav-overlay.open{display:grid;}
+  .nav-overlay-links{padding:100px 48px 48px;display:flex;flex-direction:column;gap:10px;justify-content:center;}
+  .nav-overlay-links a{
+    display:flex;align-items:baseline;gap:18px;text-decoration:none;color:var(--cream);
+    font-family:"Anton";font-size:clamp(32px,5.5vw,56px);text-transform:uppercase;
+    border-bottom:1px solid color-mix(in srgb, var(--cream) 25%, transparent);padding-bottom:10px;
+  }
+  .nav-overlay-links a .ni{font-family:"IBM Plex Mono";font-size:13px;color:color-mix(in srgb, var(--cream) 60%, transparent);}
+  .nav-overlay-links a:hover{color:var(--ink);}
+  .nav-overlay-img{position:relative;overflow:hidden;display:none;}
+  @media (min-width:860px){.nav-overlay-img{display:block;}}
+  .nav-overlay-img img{width:100%;height:100%;object-fit:cover;}
+  .nav-close{
+    position:absolute;top:24px;right:28px;z-index:2;width:42px;height:42px;border:1px solid var(--cream);
+    background:transparent;color:var(--cream);cursor:pointer;font-size:20px;
+  }
+  .nav-overlay-foot{
+    position:absolute;bottom:28px;left:48px;right:48px;display:flex;gap:22px;flex-wrap:wrap;
+    font-family:"IBM Plex Mono";font-size:12px;color:var(--cream);
+  }
+  .nav-overlay-foot a{text-decoration:none;opacity:.85;}
+  .nav-overlay-foot a:hover{opacity:1;}
+  @media (max-width:859px){.nav-overlay{grid-template-columns:1fr;} .nav-overlay-links{padding:90px 24px 24px;}}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:0;
+    background:var(--ink);color:var(--cream);
+    text-decoration:none;font-weight:600;font-size:13.5px;letter-spacing:.03em;text-transform:uppercase;
+    border:1px solid var(--ink);cursor:pointer;
+    transition:opacity .15s ease;
+  }
+  .btn:hover{opacity:.78;}
+  .btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--cream);opacity:1;}
+  .btn-on-dark{background:var(--gold);color:var(--ink);border:1px solid var(--gold);}
+  .btn-on-dark:hover{opacity:.85;}
+
+  section{padding:100px 0;}
+  section.tight{padding:68px 0;}
+  .eyebrow{
+    font-family:"IBM Plex Mono";font-size:12px;font-weight:500;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--olive-deep);
+    display:flex;align-items:center;gap:10px;margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--olive-deep);}
+  .section-head{max-width:640px;margin:0 0 50px;}
+  h2.display{font-size:clamp(38px,6vw,78px);margin:0 0 16px;}
+  .section-head p{color:var(--ink-soft);font-size:16.5px;margin:0;}
+
+  /* Scallop divider */
+  .scallop{height:22px;width:100%;background-repeat:repeat-x;background-size:34px 22px;background-position:center;}
+  .scallop-olive{background-image:radial-gradient(circle at 50% 0, transparent 15px, var(--olive) 16px);}
+  .scallop-cream{background-image:radial-gradient(circle at 50% 0, transparent 15px, var(--cream) 16px);}
+  .scallop.flip{transform:scaleY(-1);}
+
+  /* Hero */
+  .hero{
+    position:relative;min-height:88vh;display:flex;align-items:flex-end;
+    background-size:cover;background-position:center;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(20,18,10,.35) 0%, rgba(20,18,10,.55) 55%, rgba(20,18,10,.82) 100%);
+  }
+  .hero-inner{position:relative;z-index:1;padding:64px 0 56px;width:100%;}
+  .hero .eyebrow{color:var(--gold);}
+  .hero .eyebrow::before{background:var(--gold);}
+  h1.headline{color:var(--cream);font-size:clamp(44px,8vw,108px);margin:0 0 22px;}
+  h1.headline .accent{display:block;color:var(--gold);}
+  h1.headline .script{font-size:0.42em;color:var(--cream);vertical-align:middle;display:inline-block;margin-right:8px;}
+  .lede{font-size:18px;color:color-mix(in srgb, var(--cream) 85%, transparent);max-width:520px;margin:0 0 34px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+
+  /* Portfolio / collage */
+  .collage{display:flex;align-items:flex-start;gap:28px;margin-top:64px;flex-wrap:wrap;}
+  .collage-item{position:relative;flex:1 1 220px;}
+  .collage-item img{border:1px solid var(--line);}
+  .collage-item:nth-child(1){margin-top:60px;}
+  .collage-item:nth-child(2){flex:1.3 1 320px;transform:rotate(-1deg);}
+  .collage-item:nth-child(3){margin-top:30px;transform:rotate(1.2deg);}
+  .collage-cap{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:12px;}
+  @media (max-width:760px){
+    .collage{flex-direction:column;}
+    .collage-item{margin-top:0 !important;transform:none !important;width:100%;}
+  }
+
+  /* Full bleed script section */
+  .fullbleed{
+    position:relative;min-height:62vh;background-size:cover;background-position:center;
+    display:flex;align-items:center;
+  }
+  .fullbleed::after{content:"";position:absolute;inset:0;background:rgba(18,16,9,.38);}
+  .fullbleed-inner{position:relative;z-index:1;padding:60px 0;}
+  .fullbleed .script{font-size:clamp(34px,6vw,64px);color:var(--gold);display:block;line-height:1.05;}
+  .fullbleed p{color:var(--cream);max-width:420px;font-size:15.5px;margin-top:18px;}
+
+  /* Olive block */
+  .olive-block{background:var(--olive);color:var(--ink);}
+  .olive-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;}
+  .olive-grid h2{margin:0 0 18px;}
+  .olive-grid p{font-size:16px;color:color-mix(in srgb, var(--ink) 80%, transparent);max-width:460px;margin:0 0 26px;}
+  .olive-link{font-family:"IBM Plex Mono";font-size:13px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px;}
+  .tilt-pair{position:relative;height:340px;}
+  .tilt-pair img{position:absolute;border:4px solid var(--surface);box-shadow:0 14px 28px rgba(0,0,0,.18);}
+  .tilt-pair .t1{width:62%;left:0;top:10px;transform:rotate(-4deg);z-index:1;}
+  .tilt-pair .t2{width:54%;right:0;bottom:0;transform:rotate(5deg);z-index:2;}
+  @media (max-width:860px){.olive-grid{grid-template-columns:1fr;gap:40px;} .tilt-pair{height:260px;}}
+
+  /* Pull quote */
+  .pullquote{max-width:900px;}
+  .pullquote .script{color:var(--olive-deep);}
+
+  /* Background / credentials */
+  .bio-grid{display:grid;grid-template-columns:0.95fr 1.05fr;gap:64px;margin-top:56px;}
+  .bio-copy p{color:var(--ink-soft);font-size:15.5px;margin:0 0 16px;}
+  .cred-group{margin-bottom:28px;}
+  .cred-group:last-child{margin-bottom:0;}
+  .cred-label{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive-deep);margin-bottom:14px;}
+  .cred-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
+  .cred-list li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px;}
+  .cred-list li .meta{color:var(--ink-soft);font-family:"IBM Plex Mono";font-size:12.5px;white-space:nowrap;text-align:right;}
+  @media (max-width:860px){.bio-grid{grid-template-columns:1fr;gap:36px;}}
+
+  /* Services index */
+  .index-list{border-top:1px solid var(--line);margin-top:10px;}
+  .index-row{display:grid;grid-template-columns:64px 1fr 1.1fr 140px;gap:30px;padding:34px 0;border-bottom:1px solid var(--line);align-items:center;}
+  .index-row .num{font-family:"Anton";font-size:22px;color:var(--olive-deep);align-self:baseline;}
+  .index-row h3{font-family:"Public Sans";font-weight:700;font-size:21px;margin:0;align-self:baseline;letter-spacing:-.01em;}
+  .index-row p{margin:0;color:var(--ink-soft);font-size:15px;max-width:480px;align-self:baseline;}
+  .index-row .row-img{width:140px;height:104px;overflow:hidden;border:1px solid var(--line);}
+  .index-row .row-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  @media (max-width:760px){
+    .index-row{grid-template-columns:36px 1fr;}
+    .index-row p{grid-column:2;margin-top:8px;}
+    .index-row .row-img{grid-column:1 / -1;width:100%;height:170px;margin-top:14px;}
+  }
+
+  /* Approach steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  .step{padding:26px 22px;border:1px solid var(--line);background:var(--surface);}
+  .step .idx{font-family:"Anton";font-size:26px;color:var(--olive-deep);margin-bottom:14px;}
+  .step h4{font-family:"Public Sans";font-weight:700;margin:0 0 8px;font-size:16px;}
+  .step p{margin:0;color:var(--ink-soft);font-size:14px;}
+  @media (max-width:860px){.steps{grid-template-columns:1fr 1fr;}}
+  @media (max-width:520px){.steps{grid-template-columns:1fr;}}
+
+  /* Blog teaser */
+  .blog-teaser{border:1px solid var(--line);padding:44px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:var(--surface);}
+  .blog-teaser .post-date{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive-deep);margin-bottom:10px;}
+  .blog-teaser h3{margin:0 0 6px;font-size:19px;font-family:"Public Sans";font-weight:700;}
+  .blog-teaser p{color:var(--ink-soft);margin:0;font-size:14.5px;}
+
+  /* CTA panel */
+  .cta-panel{
+    background:var(--ink);color:var(--cream);padding:72px 56px;text-align:left;
+    display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;
+  }
+  .cta-panel h2{color:var(--cream);margin-bottom:10px;}
+  .cta-panel p{color:color-mix(in srgb, var(--cream) 68%, transparent);max-width:420px;margin:0;font-size:15.5px;}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-row p{margin:0;color:var(--ink-soft);font-size:13px;font-family:"IBM Plex Mono";}
+  .footer-links{display:flex;gap:22px;}
+  .footer-links a{text-decoration:none;color:var(--ink-soft);font-size:13px;}
+  .footer-links a:hover{color:var(--ink);}
+
+  @media (max-width:860px){
+    .cta-panel{grid-template-columns:1fr;text-align:left;padding:40px 26px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#top">MOHI <span>AI</span> PARTNERS</a>
+    <span class="eyebrow-nav">DMV &amp; REMOTE &mdash; CREATIVE STUDIO</span>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="nav-overlay" id="navOverlay">
+  <div class="nav-overlay-links">
+    <a href="#top" data-close><span class="ni">01</span>Home</a>
+    <a href="#background" data-close><span class="ni">02</span>Background</a>
+    <a href="#portfolio" data-close><span class="ni">03</span>Portfolio</a>
+    <a href="#services" data-close><span class="ni">04</span>Services</a>
+    <a href="blog/index.html"><span class="ni">05</span>Insights</a>
+    <a href="#contact" data-close><span class="ni">06</span>Inquire</a>
+  </div>
+  <div class="nav-overlay-img">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_161154_96a96503-0ef1-40c7-bdb6-a3b8f6bd8f7c.png" alt="">
+  </div>
+  <button class="nav-close" id="navClose" aria-label="Close menu">&times;</button>
+  <div class="nav-overlay-foot">
+    <a href="mailto:mohimaryam@gmail.com">Email</a>
+    <a href="blog/index.html">Blog</a>
+    <a href="#contact" data-close>Book a Free Consult</a>
+  </div>
+</div>
+
+<section class="hero" id="top" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_161151_fd2f898e-ffc6-4f8c-8318-67f7e5a6f7a7.png');">
+  <div class="wrap hero-inner">
+    <span class="eyebrow mono">DMV &amp; Remote &mdash; Image, Video &amp; Web Studio</span>
+    <h1 class="headline display">Your work,<br><span class="script">finally</span><span class="accent">seen.</span></h1>
+    <p class="lede">Polished product and brand imagery, video that gets watched, and a website that converts &mdash; produced with AI speed and run with the discipline of someone who's managed delivery for Fortune 500 banks.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-on-dark" href="#contact">Book a Free Consult</a>
+      <a class="btn btn-outline" style="color:var(--cream);border-color:var(--cream);" href="#services">See Services</a>
+    </div>
+  </div>
+</section>
+<div class="scallop scallop-cream"></div>
+
+<section id="portfolio">
+  <div class="wrap">
+    <span class="eyebrow mono">What I Make</span>
+    <h2 class="display">Images.<br>Video.<br>Websites.</h2>
+    <p class="lede script" style="font-size:28px;margin:18px 0 0;color:var(--olive-deep);">You'd rather be running your business than wrestling with Canva.</p>
+    <p class="section-head" style="margin-top:22px;">Every piece is produced with AI tools and finished by hand &mdash; so it looks considered, not automated.</p>
+
+    <div class="collage">
+      <div class="collage-item">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_155340_4a88b9ea-0d29-4392-a88d-1df8d30d15ce.png" alt="" loading="lazy">
+        <div class="collage-cap">Image Editing</div>
+      </div>
+      <div class="collage-item">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_155341_d56f9428-26b8-4955-bc59-db07d185ff0b.png" alt="" loading="lazy">
+        <div class="collage-cap">Video Creation</div>
+      </div>
+      <div class="collage-item">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_155342_85bb3ce2-7eab-4bc5-be8f-036de7ea6143.png" alt="" loading="lazy">
+        <div class="collage-cap">Website Design</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="scallop scallop-olive"></div>
+<section class="fullbleed" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_161153_f7190028-59a9-4480-8cf1-0283611f2914.png');">
+  <div class="wrap fullbleed-inner">
+    <span class="script">fast, polished &amp; on&#8209;brand</span>
+    <p>No agency retainer, no months-long timeline &mdash; a clear scope, a real deadline, and a finished asset you can actually use.</p>
+  </div>
+</section>
+<div class="scallop scallop-olive flip"></div>
+
+<section class="olive-block">
+  <div class="wrap olive-grid">
+    <div>
+      <span class="eyebrow mono" style="color:var(--ink);">How It Works</span>
+      <h2 class="display">A process,<br>not a favor.</h2>
+      <p>I use the same project-management discipline I brought to enterprise transformation &mdash; clear scope, real deadlines, structured revisions &mdash; paired with modern AI tools, so you always know what's happening and when it lands.</p>
+      <a class="olive-link" href="#approach">See how I work &rarr;</a>
+    </div>
+    <div class="tilt-pair">
+      <img class="t1" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_161154_96a96503-0ef1-40c7-bdb6-a3b8f6bd8f7c.png" alt="">
+      <img class="t2" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_155342_85bb3ce2-7eab-4bc5-be8f-036de7ea6143.png" alt="">
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <div class="pullquote">
+      <span class="eyebrow mono">Because Your Time Is Worth More</span>
+      <h2 class="display">Your time should go <span class="script">actually</span><br>into the work &mdash; not the editing.</h2>
+    </div>
+    <div class="bio-grid">
+      <div class="bio-copy">
+        <p>I'm Maryam Mohi &mdash; an enterprise transformation program manager turned AI-powered creative producer, with a technical background in software engineering and computer networks. Over 10+ years I led large-scale operating model redesign and digital modernization at organizations including Bank of America, Citigroup, and JPMorgan Chase, generating $3M+ in measurable cost savings through automation and process transformation.</p>
+        <p>That same rigor &mdash; clear scope, governed delivery, real adoption &mdash; is what I bring to image editing, video, and website work: fast, considered, and finished.</p>
+      </div>
+      <div>
+        <div class="cred-group">
+          <div class="cred-label">Education</div>
+          <ul class="cred-list">
+            <li><span class="name">MBA, C.T. Bauer College of Business</span><span class="meta">Univ. of Houston</span></li>
+            <li><span class="name">MS, Computer &amp; Telecommunication Networks</span><span class="meta">Sharif Univ. of Tech.</span></li>
+            <li><span class="name">BS, Software Engineering</span><span class="meta">Sharif Univ. of Tech.</span></li>
+          </ul>
+        </div>
+        <div class="cred-group">
+          <div class="cred-label">AI &amp; Automation Credentials</div>
+          <ul class="cred-list">
+            <li><span class="name">Prompt Engineering for Project Managers</span><span class="meta">PMI</span></li>
+            <li><span class="name">Generative AI Overview for Project Managers</span><span class="meta">PMI</span></li>
+            <li><span class="name">Microsoft Professional Program in AI</span><span class="meta">Coursiv</span></li>
+            <li><span class="name">Generative AI for Product Managers</span><span class="meta">Coursework</span></li>
+            <li><span class="name">RPA &amp; Enterprise Automation Strategy</span><span class="meta">Applied</span></li>
+          </ul>
+        </div>
+        <div class="cred-group">
+          <div class="cred-label">Enterprise Track Record</div>
+          <ul class="cred-list">
+            <li><span class="name">Program &amp; Transformation Manager</span><span class="meta">Bank of America</span></li>
+            <li><span class="name">PMO Manager, Portfolio Governance</span><span class="meta">Citigroup</span></li>
+            <li><span class="name">Business Analyst, Compliance Automation</span><span class="meta">JPMorgan Chase</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="tight" style="background:var(--cream-soft);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow mono">What I Do</span>
+      <h2 class="display" style="font-size:clamp(32px,4.6vw,52px);">Three ways I can help</h2>
+      <p>Focused, high-craft creative production &mdash; powered by AI, delivered with the discipline of an enterprise program manager.</p>
+    </div>
+    <div class="index-list">
+      <div class="index-row">
+        <div class="num">01</div>
+        <h3>Image Editing &amp; Retouching</h3>
+        <p>Product photography cleanup, background removal and compositing, batch editing for catalogs, and ad-ready polish &mdash; fast turnaround, consistent quality across hundreds of images.</p>
+        <div class="row-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_155340_4a88b9ea-0d29-4392-a88d-1df8d30d15ce.png" alt="" loading="lazy"></div>
+      </div>
+      <div class="index-row">
+        <div class="num">02</div>
+        <h3>Video Creation</h3>
+        <p>Social, ad, and product video &mdash; scripted, generated, and edited into scroll-stopping content, without the cost or lead time of a traditional production crew.</p>
+        <div class="row-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_155341_d56f9428-26b8-4955-bc59-db07d185ff0b.png" alt="" loading="lazy"></div>
+      </div>
+      <div class="index-row">
+        <div class="num">03</div>
+        <h3>Website Design</h3>
+        <p>Custom, on-brand websites &mdash; from a single sharp landing page to a full business site &mdash; designed and built fast, and easy to hand off or keep maintaining with me.</p>
+        <div class="row-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_155342_85bb3ce2-7eab-4bc5-be8f-036de7ea6143.png" alt="" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow mono">How I Work</span>
+      <h2 class="display" style="font-size:clamp(32px,4.6vw,52px);">A simple, practical process</h2>
+      <p>No jargon, no hundred-page decks &mdash; a clear path from where you are to results.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="idx">01</div>
+        <h4>Discovery Call</h4>
+        <p>A free conversation about your business, your brand, and what you actually need produced.</p>
+      </div>
+      <div class="step">
+        <div class="idx">02</div>
+        <h4>Scope &amp; Samples</h4>
+        <p>A clear quote and timeline, plus a quick sample on real assets so you know what to expect.</p>
+      </div>
+      <div class="step">
+        <div class="idx">03</div>
+        <h4>Production</h4>
+        <p>I edit, generate, and build &mdash; with structured check-ins, not a black box.</p>
+      </div>
+      <div class="step">
+        <div class="idx">04</div>
+        <h4>Delivery &amp; Revisions</h4>
+        <p>Final files, handed off in the format you need, with a revision round built in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow mono">Insights</span>
+      <h2 class="display" style="font-size:clamp(28px,4vw,42px);">From the blog</h2>
+    </div>
+    <div class="blog-teaser">
+      <div>
+        <div class="post-date mono">Latest Post</div>
+        <h3>How to Choose Your First AI Project</h3>
+        <p>A simple three-question framework for finding the highest-impact place to start.</p>
+      </div>
+      <a class="btn btn-outline" href="blog/post-1.html">Read the Post</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-panel">
+      <div>
+        <h2 class="display" style="font-size:clamp(30px,4.4vw,48px);">Let's get your visuals working harder.</h2>
+        <p>Book a free intro consult &mdash; a clear conversation about your images, video, or website, no pressure.</p>
+      </div>
+      <a class="btn btn-on-dark" href="mailto:mohimaryam@gmail.com?subject=Free%20AI%20Consult%20Request">Book a Free Consult</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>&copy; <span id="year"></span> Mohi AI Partners &mdash; Maryam Mohi</p>
+    <div class="footer-links">
+      <a href="#" id="fb-link" target="_blank" rel="noopener">Facebook</a>
+      <a href="mailto:mohimaryam@gmail.com">Email</a>
+      <a href="blog/index.html">Blog</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+(function(){
+  var btn = document.getElementById('menuBtn');
+  var overlay = document.getElementById('navOverlay');
+  var closeBtn = document.getElementById('navClose');
+  function open(){ overlay.classList.add('open'); btn.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ overlay.classList.remove('open'); btn.classList.remove('open'); document.body.style.overflow=''; }
+  btn.addEventListener('click', function(){ overlay.classList.contains('open') ? close() : open(); });
+  closeBtn.addEventListener('click', close);
+  overlay.querySelectorAll('[data-close]').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+})();
+</script>
+</body>
+</html>
