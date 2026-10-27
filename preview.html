@@ -145,8 +145,9 @@
   /* Hero */
   .hero{
     position:relative;min-height:88vh;display:flex;align-items:flex-end;
-    background-size:cover;background-position:center;
+    background-size:cover;background-position:center;overflow:hidden;
   }
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
   .hero::after{
     content:"";position:absolute;inset:0;
     background:linear-gradient(180deg, rgba(20,18,10,.35) 0%, rgba(20,18,10,.55) 55%, rgba(20,18,10,.82) 100%);
@@ -294,6 +295,9 @@
 </div>
 
 <section class="hero" id="top" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_164101_82313769-9ae2-4a2f-8024-f0f507ec2970.png');">
+  <video class="hero-video" autoplay muted loop playsinline poster="https://d8j0ntlcm91z4.cloudfront.net/user_3HElLa2toNF7ORULg3GY2Tajusq/hf_20261027_164101_82313769-9ae2-4a2f-8024-f0f507ec2970.png">
+    <source src="video/hero-banner.mp4" type="video/mp4">
+  </video>
   <div class="wrap hero-inner">
     <span class="eyebrow mono">DMV &amp; Remote &mdash; Image, Video &amp; Web Studio</span>
     <h1 class="headline display">Your work,<br><span class="script">finally</span><span class="accent">seen.</span></h1>
