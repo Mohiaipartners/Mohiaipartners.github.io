@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Strategy for Customer Experience | Mohi AI Partners</title>
+<meta name="description" content="Redacted case study: enterprise AI strategy for customer experience — chatbot and AI agent enablement, ROI/KPIs, and a phased roadmap. By Maryam Mohi, Mohi AI Partners.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+--cream:#F6F3F1;--cream-soft:#EBE4E1;--ink:#1D2238;--ink-soft:#5B5F75;
+--line:#DDD5D0;--olive:#0B6E73;--olive-deep:#2B3559;--gold:#7A3345;--surface:#FFFFFF;
+}
+@media (prefers-color-scheme: dark){
+:root:not([data-theme="light"]){
+--cream:#14151C;--cream-soft:#1C1E29;--ink:#F2EFEC;--ink-soft:#ABA9B8;
+--line:#333750;--olive:#36A4A9;--olive-deep:#7A86B8;--gold:#C97A8C;--surface:#1C1E29;
+}
+}
+:root[data-theme="dark"]{
+--cream:#14151C;--cream-soft:#1C1E29;--ink:#F2EFEC;--ink-soft:#ABA9B8;
+--line:#333750;--olive:#36A4A9;--olive-deep:#7A86B8;--gold:#C97A8C;--surface:#1C1E29;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:"Public Sans",-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;}
+.display{font-family:"Space Grotesk",sans-serif;font-weight:700;letter-spacing:-0.005em;text-transform:uppercase;line-height:1.04;}
+header{position:sticky;top:0;background:color-mix(in srgb, var(--cream) 90%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:10;}
+nav.wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.brand{font-family:"IBM Plex Mono";font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;}
+.brand span{color:var(--gold);}
+.back{color:var(--ink-soft);font-size:14px;font-weight:500;}
+.back:hover{color:var(--ink);}
+main{padding:64px 0 110px;}
+.eyebrow{
+font-family:"IBM Plex Mono";font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);
+display:flex;align-items:center;gap:10px;margin-bottom:22px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--gold);}
+h1{font-size:clamp(32px,5.4vw,56px);margin:0 0 18px;}
+.lede{color:var(--ink-soft);font-size:17px;max-width:640px;margin:0 0 10px;}
+.redacted-note{font-family:"IBM Plex Mono";font-size:12.5px;color:var(--ink-soft);background:var(--cream-soft);border:1px solid var(--line);display:inline-block;padding:8px 14px;margin:18px 0 36px;}
+.btn{
+display:inline-flex;align-items:center;gap:8px;
+padding:13px 26px;border-radius:0;
+background:var(--ink);color:var(--cream);
+text-decoration:none;font-weight:600;font-size:13.5px;letter-spacing:.03em;text-transform:uppercase;
+border:1px solid var(--ink);cursor:pointer;
+transition:opacity .15s ease;
+}
+.btn:hover{opacity:.78;}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+.btn-outline:hover{background:var(--ink);color:var(--cream);opacity:1;}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:60px;}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin:0 0 60px;}
+.stat{padding:22px 20px;border:1px solid var(--line);background:var(--surface);}
+.stat .num{font-family:"Space Grotesk";font-weight:700;font-size:30px;color:var(--olive-deep);}
+.stat .lbl{font-size:12.5px;color:var(--ink-soft);margin-top:4px;}
+@media (max-width:760px){.stat-row{grid-template-columns:1fr 1fr;}}
+.deck{display:flex;flex-direction:column;gap:28px;}
+.deck-slide{background:var(--surface);border:1px solid var(--line);}
+.deck-slide img{width:100%;display:block;}
+.deck-cap{padding:14px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+.deck-cap .n{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive);}
+.deck-cap .t{font-size:14px;color:var(--ink-soft);}
+footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;}
+footer p{color:var(--ink-soft);font-family:"IBM Plex Mono";font-size:13px;margin:0;}
+</style>
+</head>
+<body>
+
+<header>
+<nav class="wrap">
+<a class="brand" href="../index.html">MOHI <span>AI</span> PARTNERS</a>
+<a class="back" href="index.html">&larr; Back to sample work</a>
+</nav>
+</header>
+
+<main>
+<div class="wrap">
+<span class="eyebrow">Portfolio &middot; AI Strategy &amp; Consulting</span>
+<h1 class="display">AI-Enabled Customer Experience Transformation</h1>
+<p class="lede">A redacted example of strategy and delivery work with an enterprise client: AI adoption strategy for customer experience, conversational AI (chatbot) and intelligent-agent enablement, the resulting ROI and KPI impact, and the phased roadmap used to take it from pilot to enterprise-wide scale.</p>
+<div class="redacted-note">Client identity, data and figures are redacted / illustrative for confidentiality. Role: Transformation &amp; Program Manager leading strategy, business case and delivery.</div>
+
+<div class="cta-row">
+<a class="btn" href="../files/ai-cx-strategy-deck.pptx">Download PPTX</a>
+<a class="btn btn-outline" href="../files/ai-cx-strategy-deck.pdf">View / Download PDF</a>
+</div>
+
+<div class="stat-row">
+<div class="stat"><div class="num">35%</div><div class="lbl">Contact deflection via chatbot</div></div>
+<div class="stat"><div class="num">40%</div><div class="lbl">Manual tasks automated</div></div>
+<div class="stat"><div class="num">3.2x</div><div class="lbl">Year-1 ROI</div></div>
+<div class="stat"><div class="num">7 mo.</div><div class="lbl">Payback period</div></div>
+</div>
+
+<div class="deck">
+<div class="deck-slide">
+<img src="../img/samples/ai-cx-strategy-slide-1.jpg" alt="Cover slide: AI-Enabled Customer Experience Transformation" loading="lazy">
+<div class="deck-cap"><span class="n">01</span><span class="t">Cover</span></div>
+</div>
+<div class="deck-slide">
+<img src="../img/samples/ai-cx-strategy-slide-2.jpg" alt="Executive summary: the challenge and our approach" loading="lazy">
+<div class="deck-cap"><span class="n">02</span><span class="t">Executive Summary</span></div>
+</div>
+<div class="deck-slide">
+<img src="../img/samples/ai-cx-strategy-slide-3.jpg" alt="Three pillars of AI-enabled CX" loading="lazy">
+<div class="deck-cap"><span class="n">03</span><span class="t">Strategy &mdash; Three Pillars</span></div>
+</div>
+<div class="deck-slide">
+<img src="../img/samples/ai-cx-strategy-slide-4.jpg" alt="Conversational AI chatbot performance" loading="lazy">
+<div class="deck-cap"><span class="n">04</span><span class="t">Chatbot Performance</span></div>
+</div>
+<div class="deck-slide">
+<img src="../img/samples/ai-cx-strategy-slide-5.jpg" alt="AI agents and automation at scale" loading="lazy">
+<div class="deck-cap"><span class="n">05</span><span class="t">Agentic Automation</span></div>
+</div>
+<div class="deck-slide">
+<img src="../img/samples/ai-cx-strategy-slide-6.jpg" alt="ROI and KPI dashboard" loading="lazy">
+<div class="deck-cap"><span class="n">06</span><span class="t">ROI &amp; KPI Dashboard</span></div>
+</div>
+<div class="deck-slide">
+<img src="../img/samples/ai-cx-strategy-slide-7.jpg" alt="Four-phase implementation roadmap" loading="lazy">
+<div class="deck-cap"><span class="n">07</span><span class="t">Roadmap</span></div>
+</div>
+<div class="deck-slide">
+<img src="../img/samples/ai-cx-strategy-slide-8.jpg" alt="Governance and next steps" loading="lazy">
+<div class="deck-cap"><span class="n">08</span><span class="t">Governance &amp; Next Steps</span></div>
+</div>
+</div>
+
+<div class="cta-row" style="margin-top:48px;">
+<a class="btn" href="../files/ai-cx-strategy-deck.pptx">Download PPTX</a>
+<a class="btn btn-outline" href="../files/ai-cx-strategy-deck.pdf">View / Download PDF</a>
+</div>
+</div>
+</main>
+
+<footer>
+<p>&copy; <span id="year"></span> MOHI AI PARTNERS</p>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
